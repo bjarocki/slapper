@@ -29,10 +29,6 @@
   branch = "master"
   name = "github.com/nsf/termbox-go"
 
-[[constraint]]
-  branch = "master"
-  name = "github.com/wayneashleyberry/terminal-dimensions"
-
 [prune]
   go-tests = true
   unused-packages = true

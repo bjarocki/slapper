@@ -15,13 +15,13 @@ import (
 	"net/http"
 	"net/textproto"
 	"os"
+	"strconv"
 	"strings"
 	"sync"
 	"sync/atomic"
 	"time"
 
 	term "github.com/nsf/termbox-go"
-	terminal "github.com/wayneashleyberry/terminal-dimensions"
 )
 
 const (
@@ -46,8 +46,8 @@ var (
 	timingsOk  [][]counter
 	timingsBad [][]counter
 
-	terminalWidth  uint
-	terminalHeight uint
+	terminalWidth  int
+	terminalHeight int
 
 	// plotting vars
 	plotWidth  uint
@@ -523,11 +523,11 @@ func main() {
 	flag.Var(&headerFlags, "H", "HTTP header 'key: value' set on all requests. Repeat for more than one header.")
 	flag.Parse()
 
-	terminalWidth, _ = terminal.Width()
-	terminalHeight, _ = terminal.Height()
+	terminalWidth, _ = strconv.Atoi(os.Getenv("COLUMNS"))
+	terminalHeight, _ = strconv.Atoi(os.Getenv("LINES"))
 
-	plotWidth = terminalWidth
-	plotHeight = terminalHeight - statsLines
+	plotWidth = uint(terminalWidth)
+	plotHeight = uint(terminalHeight) - statsLines
 
 	if plotWidth <= reservedWidthSpace {
 		log.Fatal("not enough screen width, min 40 characters required")

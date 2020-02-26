@@ -2,26 +2,24 @@
 
 
 [[projects]]
+  digest = "1:e2d1d410fb367567c2b53ed9e2d719d3c1f0891397bb2fa49afd747cfbf1e8e4"
   name = "github.com/mattn/go-runewidth"
   packages = ["."]
+  pruneopts = "UT"
   revision = "9e777a8366cce605130a531d2cd6363d07ad7317"
   version = "v0.0.2"
 
 [[projects]]
   branch = "master"
+  digest = "1:cfe201f08fbe644a1fad588046d47dce2bde140b0f40e529515f24f87c7e0f32"
   name = "github.com/nsf/termbox-go"
   packages = ["."]
+  pruneopts = "UT"
   revision = "88b7b944be8bc8d8ec6195fca97c5869ba20f99d"
-
-[[projects]]
-  branch = "master"
-  name = "github.com/wayneashleyberry/terminal-dimensions"
-  packages = ["."]
-  revision = "29d939246793fbd8100dcf74700637adcb839bc5"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "35171bc57d3a0dda529e26d82b9cdd415938e3b8d0cca4a504af536882fde853"
+  input-imports = ["github.com/nsf/termbox-go"]
   solver-name = "gps-cdcl"
   solver-version = 1
